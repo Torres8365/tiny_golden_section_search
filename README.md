@@ -24,3 +24,10 @@ The function must be unimodal on the interval; if it is not, the result is whate
 ## Exports
 
 `golden_section_search(func, lower, upper, x_tolerance=1.0e-10, max_iterations=100) -> (x_min, f_min, iterations)`
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
